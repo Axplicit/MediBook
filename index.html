@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocConnect - Find & Book Doctor Appointments Online</title>
+    <meta name="description" content="Find and book appointments with qualified doctors online. Search by specialization, location, and availability.">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Loading State -->
+    <div id="loading-state" class="loading-overlay" style="display: none;">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p>Loading doctors...</p>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <i class="fas fa-user-md"></i>
+                    <span>DocConnect</span>
+                </a>
+            </div>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Find Doctors</a></li>
+                    <li><a href="#specializations">Specializations</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-actions">
+                <button class="btn-outline">Sign In</button>
+                <button class="btn-primary">Sign Up</button>
+            </div>
+            
+            <button class="mobile-toggle" id="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Find & Book the Best Doctors Near You</h1>
+                <p class="hero-subtitle">Connect with qualified healthcare professionals and book appointments online with ease</p>
+                
+                <!-- Main Search Bar -->
+                <div class="hero-search">
+                    <div class="search-container">
+                        <div class="search-input-wrapper">
+                            <i class="fas fa-search search-icon"></i>
+                            <input 
+                                type="text" 
+                                id="search-input" 
+                                placeholder="Search doctors, specializations, or locations..."
+                                class="search-input"
+                            >
+                        </div>
+                        <button class="search-btn">
+                            <i class="fas fa-search"></i>
+                            Search
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Quick Stats -->
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Verified Doctors</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Specializations</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">10K+</div>
+                        <div class="stat-label">Happy Patients</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-wrapper">
+                <div class="filter-group">
+                    <label for="city-filter">
+                        <i class="fas fa-map-marker-alt"></i>
+                        City
+                    </label>
+                    <select id="city-filter" class="filter-select">
+                        <option value="">All Cities</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="specialization-filter">
+                        <i class="fas fa-stethoscope"></i>
+                        Specialization
+                    </label>
+                    <select id="specialization-filter" class="filter-select">
+                        <option value="">All Specializations</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="availability-filter">
+                        <i class="fas fa-clock"></i>
+                        Availability
+                    </label>
+                    <select id="availability-filter" class="filter-select">
+                        <option value="">Any Time</option>
+                    </select>
+                </div>
+                
+                <button class="filter-clear" onclick="clearAllFilters()">
+                    <i class="fas fa-times"></i>
+                    Clear Filters
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <main class="doctors-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Available Doctors</h2>
+                <div class="results-info">
+                    <span id="results-count">Loading...</span>
+                </div>
+            </div>
+            
+            <!-- Doctors Grid -->
+            <div class="doctors-grid" id="doctors-container">
+                <!-- Doctor cards will be populated by JavaScript -->
+            </div>
+            
+            <!-- Pagination -->
+            <div class="pagination-wrapper">
+                <div id="pagination" class="pagination">
+                    <!-- Pagination buttons will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Popular Specializations -->
+    <section class="specializations-section" id="specializations">
+        <div class="container">
+            <div class="section-header">
+                <h2>Popular Specializations</h2>
+                <p>Find doctors by their area of expertise</p>
+            </div>
+            
+            <div class="specializations-grid">
+                <div class="specialization-card" onclick="filterBySpecialization('Cardiology')">
+                    <div class="spec-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Cardiology</h3>
+                    <p>Heart & cardiovascular care</p>
+                </div>
+                
+                <div class="specialization-card" onclick="filterBySpecialization('Dermatology')">
+                    <div class="spec-icon">
+                        <i class="fas fa-hand-paper"></i>
+                    </div>
+                    <h3>Dermatology</h3>
+                    <p>Skin, hair & nail treatment</p>
+                </div>
+                
+                <div class="specialization-card" onclick="filterBySpecialization('Neurology')">
+                    <div class="spec-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Neurology</h3>
+                    <p>Brain & nervous system</p>
+                </div>
+                
+                <div class="specialization-card" onclick="filterBySpecialization('Orthopedics')">
+                    <div class="spec-icon">
+                        <i class="fas fa-bone"></i>
+                    </div>
+                    <h3>Orthopedics</h3>
+                    <p>Bone & joint treatment</p>
+                </div>
+                
+                <div class="specialization-card" onclick="filterBySpecialization('Pediatrics')">
+                    <div class="spec-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h3>Pediatrics</h3>
+                    <p>Children's healthcare</p>
+                </div>
+                
+                <div class="specialization-card" onclick="filterBySpecialization('Gynecology')">
+                    <div class="spec-icon">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <h3>Gynecology</h3>
+                    <p>Women's health & wellness</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose DocConnect?</h2>
+                <p>Your health is our priority. Here's what makes us different.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>Verified Doctors</h3>
+                    <p>All our doctors are verified and licensed healthcare professionals with proven expertise.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Easy Booking</h3>
+                    <p>Book appointments instantly with real-time availability and instant confirmation.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Video Consultations</h3>
+                    <p>Consult with doctors from the comfort of your home through secure video calls.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure & Private</h3>
+                    <p>Your medical information is protected with bank-level security and privacy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Making Healthcare Accessible for Everyone</h2>
+                    <p>DocConnect is committed to bridging the gap between patients and healthcare providers. Our platform makes it easy to find qualified doctors, book appointments, and access quality healthcare services.</p>
+                    
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>24/7 Customer Support</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Transparent Pricing</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Quality Assurance</span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-primary">Learn More</button>
+                </div>
+                
+                <div class="about-image">
+                    <img src="assets/images/doctor-consultation.jpg" alt="Doctor Consultation" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get in Touch</h2>
+                <p>Have questions? We're here to help you 24/7</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Call Us</h3>
+                    <p>+1 (555) 123-4567</p>
+                    <span>Available 24/7</span>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Us</h3>
+                    <p>support@docconnect.com</p>
+                    <span>Response within 2 hours</span>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Live Chat</h3>
+                    <p>Chat with our team</p>
+                    <span>Instant support</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <a href="index.html">
+                            <i class="fas fa-user-md"></i>
+                            <span>DocConnect</span>
+                        </a>
+                        <p>Making healthcare accessible for everyone, everywhere.</p>
+                    </div>
+                    
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>For Patients</h4>
+                    <ul>
+                        <li><a href="index.html">Find Doctors</a></li>
+                        <li><a href="#">Book Appointment</a></li>
+                        <li><a href="#">Video Consultation</a></li>
+                        <li><a href="#">Health Records</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>For Doctors</h4>
+                    <ul>
+                        <li><a href="#">Join DocConnect</a></li>
+                        <li><a href="#">Doctor Portal</a></li>
+                        <li><a href="#">Manage Schedule</a></li>
+                        <li><a href="#">Resources</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 DocConnect. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="doctorsData.js"></script>
+    <script src="app.js"></script>
+    
+    <!-- Additional JavaScript for index-specific functionality -->
+    <script>
+        // Clear all filters function
+        function clearAllFilters() {
+            document.getElementById('search-input').value = '';
+            document.getElementById('city-filter').value = '';
+            document.getElementById('specialization-filter').value = '';
+            document.getElementById('availability-filter').value = '';
+            
+            // Reset filtered doctors to all doctors
+            filteredDoctors = [...doctorsData];
+            currentPage = 1;
+            displayDoctors();
+            updateResultsCount();
+        }
+        
+        // Filter by specialization from specialization cards
+        function filterBySpecialization(specialization) {
+            document.getElementById('specialization-filter').value = specialization;
+            handleFilters();
+            
+            // Scroll to doctors section
+            document.querySelector('.doctors-section').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        
+        // Update results count
+        function updateResultsCount() {
+            const resultsCount = document.getElementById('results-count');
+            if (resultsCount) {
+                const count = filteredDoctors.length;
+                resultsCount.textContent = `${count} doctor${count !== 1 ? 's' : ''} found`;
+            }
+        }
+        
+        // Override the original displayDoctors function to include results count
+        const originalDisplayDoctors = window.displayDoctors;
+        window.displayDoctors = function() {
+            originalDisplayDoctors();
+            updateResultsCount();
+        };
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Search input enhancement with debounce
+        let searchTimeout;
+        const searchInput = document.getElementById('search-input');
+        if (searchInput) {
+            searchInput.addEventListener('input', function(e) {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    handleSearch(e);
+                }, 300);
+            });
+        }
+    </script>
+</body>
+</html>

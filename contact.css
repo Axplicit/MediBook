@@ -12,7 +12,7 @@
 
 .contact-content {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 1fr 1.2fr; /* Swapped: form gets more space now (1.2fr), info gets less (1fr) */
     gap: var(--space-10);
     background: var(--bg-primary);
     border-radius: var(--radius-2xl);
@@ -24,6 +24,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
+    order: 2; /* Moves contact info to the right */
 }
 
 .contact-info h2 {
@@ -89,6 +90,7 @@
     padding: var(--space-6);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-md);
+    order: 1; /* Moves form to the left */
 }
 
 .contact-form {
@@ -171,6 +173,16 @@
         grid-template-columns: 1fr;
         padding: var(--space-8);
     }
+    
+    /* Reset order for mobile - form should come first */
+    .contact-form-wrapper {
+        order: 1;
+    }
+    
+    .contact-info {
+        order: 2;
+    }
+    
     .contact-info h2,
     .contact-info p {
         text-align: center;

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediConnect - Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contact.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-icon">
+                    <div class="pulse-ring"></div>
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">MediConnect</span>
+                    <span class="brand-tagline">Advanced Care</span>
+                </div>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-section="home">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#mission" class="nav-link" data-section="mission">
+                        <i class="fas fa-bullseye"></i>
+                        <span>Mission</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="doctors.html" class="nav-link" data-section="doctors">
+                        <i class="fas fa-user-md"></i>
+                        <span>Our Doctors</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="appointments.html" class="nav-link" data-section="appointments">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Appointments</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#services" class="nav-link" data-section="services">
+                        <i class="fas fa-hospital"></i>
+                        <span>Services</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link active" data-section="contact">
+                        <i class="fas fa-phone"></i>
+                        <span>Contact</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="btn-icon" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                </div>
+            
+            <div class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="contact-hero">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-badge">
+                        <i class="fas fa-headset"></i>
+                        <span>24/7 Support</span>
+                    </div>
+                    <h2>How Can We Help You Today?</h2>
+                    <p>Reach out to us for any inquiries, support, or feedback.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h2>Get in Touch</h2>
+                        <p>Join thousands of satisfied patients who trust MediConnect for their healthcare needs.</p>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="method-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="method-info">
+                                    <h4>Call Us</h4>
+                                    <p>+92-300-1876872</p>
+                                    <span>Available 24/7</span>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="method-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="method-info">
+                                    <h4>Email Us</h4>
+                                    <p>support@mediconnect.pk</p>
+                                    <span>Response within 1 hour</span>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="method-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="method-info">
+                                    <h4>Visit Us</h4>
+                                    <p>Karachi, Pakistan</p>
+                                    <span>Multiple locations</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-wrapper">
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" required placeholder="Enter your name">
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" required placeholder="your@email.com">
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                    <input type="tel" required placeholder="+92 300 1234567">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Subject</label>
+                                <select required>
+                                    <option value="">Select subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="appointment">Appointment</option>
+                                    <option value="emergency">Emergency</option>
+                                    <option value="support">Technical Support</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Message</label>
+                                <textarea required placeholder="Tell us how we can help you..." rows="4"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Send Message</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="brand-text">
+                        <span class="brand-name">MediConnect</span>
+                        <span class="brand-tagline">Advanced Healthcare Platform</span>
+                    </div>
+                    <p>Revolutionizing healthcare delivery through technology and compassionate care.</p>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Services</h4>
+                        <a href="index.html#specialists">Find Doctors</a>
+                        <a href="appointments.html">Book Appointment</a>
+                        <a href="http://www.sindhhealth.gov.pk/" target="_blank">Emergency Care</a>
+                        <a href="https://www.dvago.pk/" target="_blank">Online Pharmacy</a>
+                        <a href="https://dressalab.com/" target="_blank">Lab Tests</a>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Specialties</h4>
+                        <a href="doctors.html?specialty=Cardiology">Cardiology</a>
+                        <a href="doctors.html?specialty=Neurology">Neurology</a>
+                        <a href="doctors.html?specialty=Dermatology">Dermatology</a>
+                        <a href="doctors.html?specialty=Pediatrics">Pediatrics</a>
+                        <a href="doctors.html?specialty=Orthopedics">Orthopedics</a>
+                    </div>
+                    </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>© 2024 MediConnect. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="common.js"></script>
+    <script src="contact.js"></script>
+</body>
+</html>

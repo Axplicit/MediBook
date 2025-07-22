@@ -1,0 +1,190 @@
+/* Contact Page Specific Styles */
+
+.contact-hero {
+    background: var(--bg-secondary);
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-8);
+}
+
+.contact-section {
+    padding: var(--space-10) var(--space-8);
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-10);
+    background: var(--bg-primary);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-2xl);
+    padding: var(--space-10);
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.contact-info h2 {
+    font-size: 2.5rem;
+    text-align: left;
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    text-align: left;
+    color: var(--text-secondary);
+}
+
+.contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    margin-top: var(--space-6);
+}
+
+.contact-method {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.method-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-full);
+    background: var(--accent-gradient);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: var(--shadow-md);
+    flex-shrink: 0;
+}
+
+.method-info h4 {
+    font-family: var(--font-secondary);
+    font-size: 1.4rem;
+    color: var(--text-primary);
+}
+
+.method-info p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-1);
+}
+
+.method-info span {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.contact-form-wrapper {
+    background: var(--bg-secondary);
+    padding: var(--space-6);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+/* Common form styles (already in style.css, but ensure they apply) */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: var(--space-3);
+    border: 1px solid var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    transition: var(--transition-fast);
+    width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-5);
+}
+
+.submit-btn {
+    background: var(--success-gradient);
+    color: white;
+    padding: var(--space-4) var(--space-6);
+    border-radius: var(--radius-md);
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-normal);
+    width: 100%;
+}
+
+.submit-btn:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+/* Responsive Adjustments for Contact Page */
+@media (max-width: 1024px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+        padding: var(--space-8);
+    }
+    .contact-info h2,
+    .contact-info p {
+        text-align: center;
+    }
+    .contact-methods {
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-content {
+        padding: var(--space-6);
+    }
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}

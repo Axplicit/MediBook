@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediConnect - Book Appointment</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="appointments.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-icon">
+                    <div class="pulse-ring"></div>
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">MediConnect</span>
+                    <span class="brand-tagline">Advanced Care</span>
+                </div>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-section="home">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#mission" class="nav-link" data-section="mission">
+                        <i class="fas fa-bullseye"></i>
+                        <span>Mission</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="doctors.html" class="nav-link" data-section="doctors">
+                        <i class="fas fa-user-md"></i>
+                        <span>Our Doctors</span>
+                    </a>
+                </li>
+                 <li class="nav-item">
+                    <a href="appointments.html" class="nav-link active" data-section="appointments">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Appointments</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#services" class="nav-link" data-section="services">
+                        <i class="fas fa-hospital"></i>
+                        <span>Services</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link" data-section="contact">
+                        <i class="fas fa-phone"></i>
+                        <span>Contact</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="btn-icon" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                </div>
+            
+            <div class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="appointment-hero">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-badge">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Book Your Visit</span>
+                    </div>
+                    <h2>Schedule Your Appointment with Ease</h2>
+                    <p>Select your preferred doctor, date, and time to book your consultation.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="appointment-form-section">
+            <div class="container">
+                <div class="appointment-card">
+                    <div class="doctor-selection" id="doctorSelection">
+                        <h3>1. Select Doctor</h3>
+                        <div class="search-field">
+                            <label for="doctorSearchInput">Search Doctor:</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-user-md"></i>
+                                <input type="text" id="doctorSearchInput" placeholder="Enter doctor name or specialty">
+                            </div>
+                        </div>
+                        <div class="selected-doctor-info" id="selectedDoctorInfo">
+                            <p class="placeholder-text">Please select a doctor to proceed.</p>
+                        </div>
+                        <div class="doctor-list" id="doctorList">
+                            </div>
+                    </div>
+
+                    <div class="appointment-details">
+                        <h3>2. Choose Date & Time</h3>
+                        <div class="form-group">
+                            <label for="appointmentDate">Date:</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-calendar-alt"></i>
+                                <input type="date" id="appointmentDate" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="appointmentTime">Available Times:</label>
+                            <div class="time-slots-grid" id="timeSlotsGrid">
+                                <p class="placeholder-text">Select a date to see available times.</p>
+                            </div>
+                        </div>
+
+                        <h3>3. Your Details</h3>
+                        <form class="appointment-form" id="appointmentForm">
+                            <div class="form-group">
+                                <label for="patientName">Full Name</label>
+                                <input type="text" id="patientName" required placeholder="Enter your name">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="patientEmail">Email</label>
+                                    <input type="email" id="patientEmail" required placeholder="your@email.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="patientPhone">Phone</label>
+                                    <input type="tel" id="patientPhone" required placeholder="+92 300 1234567">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="reason">Reason for Visit</label>
+                                <textarea id="reason" required placeholder="Briefly describe your reason for visit..." rows="3"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn" id="bookAppointmentBtn">
+                                <i class="fas fa-calendar-plus"></i>
+                                <span>Confirm Booking</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="brand-text">
+                        <span class="brand-name">MediConnect</span>
+                        <span class="brand-tagline">Advanced Healthcare Platform</span>
+                    </div>
+                    <p>Revolutionizing healthcare delivery through technology and compassionate care.</p>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Services</h4>
+                        <a href="index.html#specialists">Find Doctors</a>
+                        <a href="appointments.html">Book Appointment</a>
+                        <a href="http://www.sindhhealth.gov.pk/" target="_blank">Emergency Care</a>
+                        <a href="https://www.dvago.pk/" target="_blank">Online Pharmacy</a>
+                        <a href="https://dressalab.com/" target="_blank">Lab Tests</a>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Specialties</h4>
+                        <a href="doctors.html?specialty=Cardiology">Cardiology</a>
+                        <a href="doctors.html?specialty=Neurology">Neurology</a>
+                        <a href="doctors.html?specialty=Dermatology">Dermatology</a>
+                        <a href="doctors.html?specialty=Pediatrics">Pediatrics</a>
+                        <a href="doctors.html?specialty=Orthopedics">Orthopedics</a>
+                    </div>
+                    </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>© 2024 MediConnect. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="common.js"></script>
+    <script type="module" src="appointments.js"></script>
+</body>
+</html>

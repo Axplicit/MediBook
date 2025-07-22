@@ -1,0 +1,296 @@
+/* Appointments Page Specific Styles */
+
+.appointment-hero {
+    background: var(--bg-secondary);
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-8);
+}
+
+.appointment-form-section {
+    padding: var(--space-10) var(--space-8);
+}
+
+.appointment-card {
+    background: var(--bg-primary);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-2xl);
+    padding: var(--space-10);
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Doctor selection on left, details on right */
+    gap: var(--space-10);
+}
+
+.doctor-selection,
+.appointment-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.doctor-selection h3,
+.appointment-details h3 {
+    font-family: var(--font-secondary);
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: var(--space-4);
+    border-bottom: 2px solid var(--bg-tertiary);
+    padding-bottom: var(--space-3);
+}
+
+.doctor-search-input {
+    width: 100%;
+}
+
+.doctor-list {
+    max-height: 400px; /* Limit height and make scrollable */
+    overflow-y: auto;
+    border: 1px solid var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.doctor-list-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+    background: var(--bg-tertiary);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.doctor-list-item:hover,
+.doctor-list-item.selected {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.doctor-list-item.selected .doctor-info p,
+.doctor-list-item.selected .doctor-info span {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+
+.doctor-list-item.selected .doctor-avatar {
+    border-color: white;
+}
+
+.doctor-list-item .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 2px solid var(--primary-color);
+}
+
+.doctor-list-item .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.doctor-list-item .doctor-info {
+    flex-grow: 1;
+}
+
+.doctor-list-item .doctor-info h4 {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-1);
+    color: var(--text-primary);
+}
+
+.doctor-list-item:hover .doctor-info h4,
+.doctor-list-item.selected .doctor-info h4 {
+    color: white;
+}
+
+.doctor-list-item .doctor-info p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.selected-doctor-info {
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+    box-shadow: var(--shadow-sm);
+}
+
+.selected-doctor-info .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 3px solid var(--primary-color);
+}
+.selected-doctor-info .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.selected-doctor-info .info-text h4 {
+    font-family: var(--font-secondary);
+    font-size: 1.4rem;
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+}
+
+.selected-doctor-info .info-text p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.selected-doctor-info .info-text .rating {
+    color: var(--warning-color);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    margin-top: var(--space-1);
+}
+
+.placeholder-text {
+    color: var(--text-muted);
+    text-align: center;
+    padding: var(--space-4);
+    font-style: italic;
+}
+
+.time-slots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: var(--space-3);
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
+}
+
+.time-slot {
+    background: var(--bg-tertiary);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.time-slot:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
+.time-slot.selected {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.time-slot.unavailable {
+    background: #e0e0e0;
+    color: #9e9e9e;
+    cursor: not-allowed;
+    text-decoration: line-through;
+}
+
+/* Common form styles (already in style.css, but ensure they apply) */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: var(--space-3);
+    border: 1px solid var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    transition: var(--transition-fast);
+    width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-5);
+}
+
+.submit-btn {
+    background: var(--success-gradient);
+    color: white;
+    padding: var(--space-4) var(--space-6);
+    border-radius: var(--radius-md);
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-normal);
+    width: 100%;
+}
+
+.submit-btn:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+/* Responsive Adjustments for Appointments Page */
+@media (max-width: 1024px) {
+    .appointment-card {
+        grid-template-columns: 1fr;
+        padding: var(--space-8);
+    }
+}
+
+@media (max-width: 768px) {
+    .appointment-card {
+        padding: var(--space-6);
+    }
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}

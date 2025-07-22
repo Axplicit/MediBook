@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediConnect - Our Doctors</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="doctors.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-icon">
+                    <div class="pulse-ring"></div>
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">MediConnect</span>
+                    <span class="brand-tagline">Advanced Care</span>
+                </div>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-section="home">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#mission" class="nav-link" data-section="mission">
+                        <i class="fas fa-bullseye"></i>
+                        <span>Mission</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="doctors.html" class="nav-link active" data-section="doctors">
+                        <i class="fas fa-user-md"></i>
+                        <span>Our Doctors</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="appointments.html" class="nav-link" data-section="appointments">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Appointments</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#services" class="nav-link" data-section="services">
+                        <i class="fas fa-hospital"></i>
+                        <span>Services</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link" data-section="contact">
+                        <i class="fas fa-phone"></i>
+                        <span>Contact</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="btn-icon" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                </div>
+            
+            <div class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="doctors-page-hero">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-badge">
+                        <i class="fas fa-user-md"></i>
+                        <span>Our Specialists</span>
+                    </div>
+                    <h2>Meet Our Expert Healthcare Professionals</h2>
+                    <p>Browse through our highly qualified doctors and find the right one for your needs.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="doctors-listing">
+            <div class="container">
+                <div class="doctors-filters-sort">
+                    <div class="filter-group">
+                        <label for="filterSpecialty">Specialty:</label>
+                        <div class="select-wrapper">
+                            <select id="filterSpecialty">
+                                <option value="all">All Specialties</option>
+                                <option value="Cardiology">Cardiology</option>
+                                <option value="Dermatology">Dermatology</option>
+                                <option value="Gastroenterologist">Gastroenterologist</option>
+                                <option value="Gynecology">Gynecology</option>
+                                <option value="Neurology">Neurology</option>
+                                <option value="Orthopedic Surgeon">Orthopedic Surgeon</option>
+                                <option value="Pediatrics">Pediatrics</option>
+                                <option value="Dentistry">Dentistry</option>
+                            </select>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filterLocation">Location:</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <input type="text" id="filterLocation" placeholder="e.g., Karachi">
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <label for="sortOrder">Sort By:</label>
+                        <div class="select-wrapper">
+                            <select id="sortOrder">
+                                <option value="default">Default</option>
+                                <option value="rating-desc">Rating (High to Low)</option>
+                                <option value="experience-desc">Experience (High to Low)</option>
+                                <option value="name-asc">Name (A-Z)</option>
+                            </select>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <button class="btn-primary reset-filters-btn" id="resetFilters">Reset Filters</button>
+                </div>
+
+                <div class="specialists-grid" id="specialistsGrid">
+                    </div>
+                <p id="noDoctorsMessage" class="no-results-message hidden">No doctors found matching your criteria. Please adjust your filters.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="brand-text">
+                        <span class="brand-name">MediConnect</span>
+                        <span class="brand-tagline">Advanced Healthcare Platform</span>
+                    </div>
+                    <p>Revolutionizing healthcare delivery through technology and compassionate care.</p>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Services</h4>
+                        <a href="index.html#specialists">Find Doctors</a>
+                        <a href="appointments.html">Book Appointment</a>
+                        <a href="http://www.sindhhealth.gov.pk/" target="_blank">Emergency Care</a>
+                        <a href="https://www.dvago.pk/" target="_blank">Online Pharmacy</a>
+                        <a href="https://dressalab.com/" target="_blank">Lab Tests</a>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Specialties</h4>
+                        <a href="doctors.html?specialty=Cardiology">Cardiology</a>
+                        <a href="doctors.html?specialty=Neurology">Neurology</a>
+                        <a href="doctors.html?specialty=Dermatology">Dermatology</a>
+                        <a href="doctors.html?specialty=Pediatrics">Pediatrics</a>
+                        <a href="doctors.html?specialty=Orthopedics">Orthopedics</a>
+                    </div>
+                    </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>© 2024 MediConnect. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="common.js"></script>
+    <script type="module" src="doctors.js"></script>
+</body>
+</html>
